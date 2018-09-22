@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
 import { VideoComponent } from './video/video.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RegistrationComponent } from './registration/registration.component';
     AppComponent,
     BasicInformationComponent,
     VideoComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule, 

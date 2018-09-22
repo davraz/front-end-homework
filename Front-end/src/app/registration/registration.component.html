@@ -1,30 +1,31 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
+    
     <form [formGroup]="firstFormGroup" class="regisForm">
       <h2>Personal Information</h2>
       <ng-template matStepLabel>User</ng-template>
       <div>
         <mat-form-field>
-          <input matInput placeholder="First Name" formControlName="firstCtrl" required>
+          <input matInput placeholder="First Name" formControlName="firstCtrl" [(ngModel)]="model.FirstName" required>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="Last Name" formControlName="secondCtrl" required>
+          <input matInput placeholder="Last Name" [(ngModel)]="model.LastName" formControlName="secondCtrl" required>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="BirthDay" type=date formControlName="thirdCtrl" required>
+          <input matInput placeholder="BirthDay" type=date [(ngModel)]="model.BirthDay" formControlName="thirdCtrl" required>
         </mat-form-field>
       </div>
 
       <h2>User Information</h2>
       <div>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+            <input matInput placeholder="Email" [(ngModel)]="model.Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
             <mat-hint>Type your email address</mat-hint>
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
               Please enter a valid email address
@@ -37,22 +38,52 @@
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="Password" type=password formControlName="fifthCtrl" required>
+          <input matInput placeholder="Password" name="password" [(ngModel)]="model.Password" type=password formControlName="fifthCtrl" required>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="Repeat Password" type=password formControlName="sixthCtrl" required>
+          <input matInput placeholder="Repeat Password" appConfirmEqualValidator="password" type=password formControlName="sixthCtrl" required>
         </mat-form-field>
       </div>
-      
-      
+    
+
+  
       
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
+    
+<!--<form>
+      <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" placeholder="Type your password" required [(ngModel)]="model.Password"
+          name="Password" #Password="ngModel">
+      
+        <span class="help-block" *ngIf="Password.invalid && Password.touched">
+          Password is required
+        </span>
+      </div>
+      
+      <div class="form-group" [class.has-error]="Repeat-Password.invalid && Repeat-Password.touched">
+        <label for="RepeatPassword">Repeat Password</label>
+        <input type="password" class="form-control" id="RepeatPassword" appConfirmEqualValidator="Password" placeholder="Confirm your password"
+          required [(ngModel)]="model.RepeatPassword" name="RepeatPassword" #RepeatPassword="ngModel">
+      
+        <span class="help-block" *ngIf="RepeatPassword.invalid && RepeatPassword.touched">
+          Password is required
+        </span>
+      
+        <span class="help-block" *ngIf="RepeatPassword.errors?.notEqual && RepeatPassword.touched">
+          Passwords not match
+        </span>
+      </div>
+    </form>-->
+    
+
+
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
@@ -69,7 +100,9 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <video #video class="video"></video>
+          
+          <video #video class="video" ></video>
+          
         </div>
       </div>
       <div class="row">
@@ -79,6 +112,7 @@
           <button md-raised-button color="primary" (click)="download()"> Download</button>
         </div>
       </div>
+      
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -90,6 +124,37 @@
   <mat-step>
     <ng-template matStepLabel>Submit</ng-template>
     <h2>Register Information</h2>
+    <!--<div class="row">
+      <div class="col-xs-12">
+        <video #video class="video"></video>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <button md-raised-button color="primary" (click)="startRecording()"> Record </button>
+        <button md-raised-button color="primary"(click) ="stopRecording()"> Stop</button>
+        <button md-raised-button color="primary" (click)="download()"> Download</button>
+      </div>
+    </div>-->
+
+    <h3>Personal Information</h3>
+    
+    <div>
+      <h4>Name: {{model.FirstName}}</h4>      
+    </div>
+    <div>
+      <h4>Last Name: {{model.LastName}}</h4>
+    </div>
+    <div>
+      <h4>BirthDay: {{model.BirthDay}}</h4>
+    </div>
+    <h3>User Information</h3>
+    <div>
+      <h4>Email address: {{model.Email}}</h4>
+    </div>
+    
+    
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>

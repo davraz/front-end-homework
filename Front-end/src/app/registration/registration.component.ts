@@ -1,8 +1,10 @@
+let RecordRTC = require('recordrtc/RecordRTC.min');
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { Student } from '../student';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, NgForm, FormControl } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-let RecordRTC = require('recordrtc/RecordRTC.min');
+
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -11,6 +13,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -18,9 +22,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class RegistrationComponent implements OnInit, AfterViewInit {
 
-  model = new Student('','','','','');
+  model = new Student('','','','','','');
 
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
@@ -30,9 +34,12 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     Validators.email,
   ]);
 
+
+    
+
   private stream: MediaStream;
   private recordRTC: any;
-  @ViewChild('video') video;
+  @ViewChild('video') video: any;
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -41,12 +48,12 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       firstCtrl: ['', Validators.required],
       secondCtrl: ['', Validators.required],
       thirdCtrl: ['', Validators.required],
-      forthCtrl: ['', Validators.required],
+      
       fifthCtrl: ['', Validators.required],
       sixthCtrl: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+     // videoCtrl: ['', Validators.required]
     });
   }
 
@@ -117,6 +124,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     let stream = this.stream;
     stream.getAudioTracks().forEach(track => track.stop());
     stream.getVideoTracks().forEach(track => track.stop());
+    
   }
 
   download() {
