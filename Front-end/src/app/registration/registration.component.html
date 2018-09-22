@@ -66,9 +66,20 @@
           process and introduce yourself
         </h3>
       </div>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <video #video class="video"></video>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button md-raised-button color="primary" (click)="startRecording()"> Record </button>
+          <button md-raised-button color="primary"(click) ="stopRecording()"> Stop</button>
+          <button md-raised-button color="primary" (click)="download()"> Download</button>
+        </div>
+      </div>
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -78,7 +89,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Submit</ng-template>
-    You are now done.
+    <h2>Register Information</h2>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>

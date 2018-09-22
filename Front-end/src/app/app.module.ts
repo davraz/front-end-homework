@@ -31,7 +31,7 @@ import { RegistrationComponent } from './registration/registration.component';
     MatCheckboxModule,    
     RouterModule.forRoot([
      // { path: 'registration/basic-information', component: BasicInformationComponent },
-     // { path: 'registration/video', component: VideoComponent }
+      //{ path: 'registration/video', component: VideoComponent },
       { path: '', component: RegistrationComponent }
       //{ path: 'registration', component: RegistrationComponent }
     ]) 
