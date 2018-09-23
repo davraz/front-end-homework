@@ -51,11 +51,20 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       
       fifthCtrl: ['', Validators.required],
       sixthCtrl: ['', Validators.required],
-    });
+    }//,{
+      //validator: this.validateForm
+    //}
+    );
     this.secondFormGroup = this._formBuilder.group({
      // videoCtrl: ['', Validators.required]
     });
   }
+/*  validateForm(group:any){
+    console.log('msgeee');
+    return {
+      isRequired: false
+    }
+  }*/
 
   ngAfterViewInit() {
     // set the initial state of the video
