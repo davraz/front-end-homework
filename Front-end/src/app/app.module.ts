@@ -11,6 +11,9 @@ import { BasicInformationComponent } from './basic-information/basic-information
 import { VideoComponent } from './video/video.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 
 @NgModule({
@@ -25,6 +28,10 @@ import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.direct
     BrowserModule, 
     FormsModule,
     NoopAnimationsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false}
+    ),
     MatButtonModule,
     ReactiveFormsModule,
     MatStepperModule,

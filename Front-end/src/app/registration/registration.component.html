@@ -56,7 +56,7 @@
       </div>
     </form>
     
-<!--<form>
+      <!--<form>
       <div class="form-group" [class.has-error]="Password.invalid && Password.touched">
         <label for="Password">Password</label>
         <input type="password" class="form-control" id="Password" placeholder="Type your password" required [(ngModel)]="model.Password"
@@ -153,13 +153,13 @@
     <div>
       <h4>Email address: {{model.Email}}</h4>
     </div>
-    <div id='videocontainer'>
-      
-    </div>
+    <div id='videocontainer'>  </div>
     
+   
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="add(model.FirstName)">Submit</button>
+      
     </div>
   </mat-step>
 </mat-horizontal-stepper>
