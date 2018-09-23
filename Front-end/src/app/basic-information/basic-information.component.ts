@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BasicInformationComponent implements OnInit {
 
-  model = new Student('','','','','');
+  model = new Student('','','','','','');
 
   submitted = false;
 

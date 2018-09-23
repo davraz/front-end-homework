@@ -1,8 +1,10 @@
+declare var require: any;
 let RecordRTC = require('recordrtc/RecordRTC.min');
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { Student } from '../student';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, NgForm, FormControl } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+
 
 
 
