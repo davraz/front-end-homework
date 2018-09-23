@@ -14,6 +14,7 @@ import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.direct
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     BasicInformationComponent,
     VideoComponent,
     RegistrationComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    MessagesComponent
   ],
   imports: [
     BrowserModule, 
@@ -40,9 +42,9 @@ import { InMemoryDataService } from './in-memory-data.service';
     MatCheckboxModule,    
     RouterModule.forRoot([
      // { path: 'registration/basic-information', component: BasicInformationComponent },
-      //{ path: 'registration/video', component: VideoComponent },
-      { path: '', component: RegistrationComponent }
-      //{ path: 'registration', component: RegistrationComponent }
+      { path: 'registration/success', component: VideoComponent },
+      { path: '', redirectTo: 'registration', pathMatch: 'full' },
+      { path: 'registration', component: RegistrationComponent }
     ]) 
     
   ],
