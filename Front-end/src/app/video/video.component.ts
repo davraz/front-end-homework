@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+declare var require: any;
 let RecordRTC = require('recordrtc/RecordRTC.min');
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-video',
@@ -11,6 +13,7 @@ export class VideoComponent implements AfterViewInit, OnInit {
   private stream: MediaStream;
   private recordRTC: any;
 
+    
   @ViewChild('video') video;
 
   constructor() { }
