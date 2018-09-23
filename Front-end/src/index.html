@@ -7,6 +7,41 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script type='text/javascript'>
+
+    function goto_first() {
+        document.getElementById('cdk-step-label-0-0').click();
+        document.getElementById('cdk-step-label-0-1').addEventListener("click", validate_password);  
+    }
+
+    function validate_password( e ) {
+        if ( document.getElementById('password').value != document.getElementById('repassword').value ) {
+            alert('different values');
+            setTimeout('goto_first()',100);
+        }
+    }
+
+    function validate_video() {
+
+      if ( document.getElementById('video').duration <= 0 || isNaN(document.getElementById('video').duration)){
+        alert('the video must be at least 2 sec');
+        setTimeout('goto_second()',100);
+      }   
+      else{
+        document.getElementById('videocontainer').innerHTML = "";
+        document.getElementById('videocontainer').appendChild( document.getElementById('video').cloneNode(true));
+      }
+      console.log(document.getElementById('video').duration)
+    }
+
+    function goto_second() {
+      document.getElementById('cdk-step-label-0-1').click();
+      document.getElementById('cdk-step-label-0-2').addEventListener("click", validate_video);  
+    }
+
+  </script>
+
 </head>
 <body>
   <app-root></app-root>

@@ -38,13 +38,13 @@
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="Password" name="password" [(ngModel)]="model.Password" type=password formControlName="fifthCtrl" required>
+          <input matInput id='password' placeholder="Password" name="password" [(ngModel)]="model.Password" type=password formControlName="fifthCtrl" required>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field>
-          <input matInput placeholder="Repeat Password" appConfirmEqualValidator="password" type=password formControlName="sixthCtrl" required>
+          <input matInput id='repassword' placeholder="Repeat Password" [(ngModel)]="model.RepeatPassword" type=password formControlName="sixthCtrl" required>
         </mat-form-field>
       </div>
     
@@ -52,7 +52,7 @@
   
       
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext onclick="validate_password()">Next</button>
       </div>
     </form>
     
@@ -101,7 +101,7 @@
       <div class="row">
         <div class="col-xs-12">
           
-          <video #video class="video" ></video>
+          <video #video class="video" id= 'video' ></video>
           
         </div>
       </div>
@@ -116,7 +116,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext onclick="validate_video()">Next</button>
       </div>
     </form>
     
@@ -153,7 +153,9 @@
     <div>
       <h4>Email address: {{model.Email}}</h4>
     </div>
-    
+    <div id='videocontainer'>
+      
+    </div>
     
     <div>
       <button mat-button matStepperPrevious>Back</button>
