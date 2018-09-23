@@ -31,11 +31,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   secondFormGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  emailFormControl = new FormControl('', [
+  /*emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
-
+*/
 
     
 
@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       firstCtrl: ['', Validators.required],
       secondCtrl: ['', Validators.required],
       thirdCtrl: ['', Validators.required],
-      
+      fourthCtrl: ['', Validators.required],
       fifthCtrl: ['', Validators.required],
       sixthCtrl: ['', Validators.required],
     }//,{
