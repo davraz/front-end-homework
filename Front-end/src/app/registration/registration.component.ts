@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { Student } from '../student';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, NgForm, FormControl } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { StudentService } from '../student.service';
 
 
 
@@ -30,6 +31,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
+  students : Student[] = [];
 
   /*emailFormControl = new FormControl('', [
     Validators.required,
@@ -43,7 +45,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   private recordRTC: any;
   @ViewChild('video') video: any;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private studentService: StudentService) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -140,6 +142,20 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
 
   download() {
     this.recordRTC.save('video.webm');
+  }
+
+  add(FirstName: string): void {
+    FirstName = FirstName.trim();
+    if (!FirstName) { return; }
+    this.studentService.addStudent({ FirstName } as Student)
+      .subscribe(student => {
+        this.students.push(student);
+      });
+  }
+
+  getStudents(): void {
+    this.studentService.getStudents()
+    .subscribe(students => this.students = students);
   }
 
 }

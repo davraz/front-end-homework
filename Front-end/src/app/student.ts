@@ -1,5 +1,6 @@
 export class Student {
 
+    public id: number;
     constructor(
         public FirstName: string,
         public LastName: string,
@@ -7,5 +8,6 @@ export class Student {
         public Email: string,
         public Password: string,
         public RepeatPassword: string
+        
     ) {}
 }
