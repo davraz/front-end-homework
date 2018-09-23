@@ -158,7 +158,8 @@
    
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="add(model.FirstName)">Submit</button>
+      <button mat-button (click)="add(model.FirstName)" [routerLink]="['/registration/success']">
+         Submit</button>
       
     </div>
   </mat-step>

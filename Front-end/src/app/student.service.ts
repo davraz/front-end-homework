@@ -25,7 +25,7 @@ export class StudentService {
   /** GET heroes from the server */
     addStudent(student: Student): Observable<Student> {
         return this.http.post<Student>(this.studentsUrl, student, httpOptions).pipe(
-            tap((student: Student) => this.log(`added student w/ id=${student.id}`)),
+            tap((student: Student) => this.log(`added student w/ id=${student.id} w/ FirstName=${student.FirstName}`)),
             catchError(this.handleError<Student>('addStudent'))
         );
     }
