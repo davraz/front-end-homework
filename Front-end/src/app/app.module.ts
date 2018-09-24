@@ -7,7 +7,7 @@ import { MatButtonModule, MatInputModule, MatCheckboxModule, MatFormFieldModule,
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { BasicInformationComponent } from './basic-information/basic-information.component';
+
 import { VideoComponent } from './video/video.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
@@ -20,7 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BasicInformationComponent,
+    
     VideoComponent,
     RegistrationComponent,
     ConfirmEqualValidatorDirective,
