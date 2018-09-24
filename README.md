@@ -1,4 +1,4 @@
-# front-end-homework
+# front-end-homework team 3
 homework about front-end
 
 Angular CLI: 6.2.1
